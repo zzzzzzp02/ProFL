@@ -1,50 +1,11 @@
 # Byzantine-robust Federated Learning Considering Distributed Non-IID Data in Privacy-sensitive Scenarios
 
-We will continue to provide detailed introductions and updates on the repository.
+For federated learning (FL), its decentralized training approach is vulnerable to the targeted or untargeted attacks from Byzantine clients, which results in decreased model accuracy. In privacy-sensitive scenarios, the Byzantine clients identification is extremely difficult, due to the fact that gradient information is encrypted. To preserve privacy while identifying Byzantine clients in these scenarios, many schemes on identifying malicious local gradients over ciphertexts are proposed. However, existing works suffer from the problems of inefficiency in non-independent identically distributed (Non-IID) data and potential privacy leakage. To address the issues, we propose a privacy-preserving and byzantine-robust FL scheme (ProFL), which can resist encrypted malicious gradients effectively and protect the privacy of gradients. In ProFL, the linearly homomorphic encryption (LHE) technique is adopted to safeguard the gradient parameters. Specifically, ProFL designs two secure protocols that effectively mitigate potential threats in existing methods while maintaining computation complexity within a linear range. A robust aggregation method based on Manhattan distance is proposed to effectively enhance the robustness of federated aggregation in Non-IID data scenarios. The security and convergence proof of ProFL is given. Finally, extensive evaluations demonstrate that ProFL outperforms other privacy-preserving and byzantine-robust FL schemes in defending against various poisoning attacks.
 
 ***
 
 This project is based on the open source project [PFLlib](https://github.com/TsingZ0/PFLlib) development.
 
-## The datsets used in this project
-
-- MNIST
-- FashionMNIST
-- Cifar10
-- FEMNIST
-- Cifar100
-- Caltech256
-
-## The types of poisoning attacks
-
-- **Label-flipping attack** — [Local Model Poisoning Attacks to Byzantine-Robust Federated Learning](https://www.usenix.org/conference/usenixsecurity20/presentation/fang) *USENIX Security 2020*
-- **Sign-flipping attack** — [RSA: Byzantine-robust stochastic aggregation methods for distributed learning from heterogeneous datasets](https://ojs.aaai.org/index.php/AAAI/article/view/3968) *AAAI 2019*
-- **Gaussian-noise attack** — [Local Model Poisoning Attacks to Byzantine-Robust Federated Learning](https://www.usenix.org/conference/usenixsecurity20/presentation/fang) *USENIX Security 2020*
-- **LIE attack** — [A little is enough: Circumventing defenses for distributed learning](https://proceedings.neurips.cc/paper_files/paper/2019/hash/ec1c59141046cd1866bbbcdfb6ae31d4-Abstract.html) *NeurIPS 2019*
-- **Fang's attack** — [Local Model Poisoning Attacks to Byzantine-Robust Federated Learning](https://www.usenix.org/conference/usenixsecurity20/presentation/fang) *USENIX Security 2020*
-- **Min-Max attack** — [Manipulating the byzantine: Optimizing model poisoning attacks and defenses for federated learning](https://www.ndss-symposium.org/wp-content/uploads/ndss2021_6C-3_24498_paper.pdf) *NDSS 2021*
-- **AGR-tailored attack** — [Manipulating the byzantine: Optimizing model poisoning attacks and defenses for federated learning](https://www.ndss-symposium.org/wp-content/uploads/ndss2021_6C-3_24498_paper.pdf) *NDSS 2021*
-- **FMPA** — [Denial-of-service or fine-grained control: Towards flexible model poisoning attacks on federated learning](https://dl.acm.org/doi/abs/10.24963/ijcai.2023/508) *IJCAI 2023*
-
-
-## The types of Robust Federated Learning
-
- ***Byzantine-robust Federated Learning***
-
-- **Krum/MultiKrum** — [Machine learning with adversaries: Byzantine tolerant gradient descent](https://proceedings.neurips.cc/paper/2017/hash/f4b9ec30ad9f68f89b29639786cb62ef-Abstract.html) *NeurIPS 2017*
-- **Median/TrimMean** — [Byzantine-robust distributed learning: Towards optimal statistical rates](https://proceedings.mlr.press/v80/yin18a) *PMLR 2018*
-- **Bulyan** — [The Hidden Vulnerability of Distributed Learning in Byzantium](https://proceedings.mlr.press/v80/mhamdi18a.html) *PMLR 2018*
-- **FLTrust** — [FLTrust: Byzantine-robust Federated Learning via Trust Bootstrapping](https://www.ndss-symposium.org/wp-content/uploads/ndss2021_6C-2_24434_paper.pdf) *NDSS 2021*
-- **Variance-reduced FL** — [Byzantine-robust variance-reduced federated learning over distributed non-i.i.d. data](https://www.sciencedirect.com/science/article/pii/S0020025522012464) *Information Sciences 2022*
-
- ***Privacy-perserving and Byzantine-robust Federated Learning (Theoretical deployment)***
-
-- **PEFL** — [Privacy-Enhanced Federated Learning Against Poisoning Adversaries](https://ieeexplore.ieee.org/abstract/document/9524709) *TIFS 2021*
-- **SEAR** — [SEAR: Secure and Efficient Aggregation for Byzantine-Robust Federated Learning](https://ieeexplore.ieee.org/abstract/document/9468910) *TDSC 2022*
-- **ShieldFL** — [ShieldFL: Mitigating Model Poisoning Attacks in Privacy-Preserving Federated Learning](https://ieeexplore.ieee.org/abstract/document/9762272) *TIFS 2022*
-- **P2BroFL** — [Privacy-Preserving and Byzantine-Robust Federated Learning](https://ieeexplore.ieee.org/abstract/document/10093038) *TDSC 2023*
-
-## Code
 
 ### Dataset processing and partitioning
 The `dataset` directory contains all the datasets used in this project. Below is a description of python scripts written to process datasets:
@@ -114,6 +75,21 @@ python -u main.py -data MNIST -m cnn -algo ProFLTheory -gr 200 -nc 20 -nb 10 -lb
 
 For other parameter settings, please refer to [PFLlib](https://github.com/TsingZ0/PFLlib).
 
+### If this project helped you, please cite:
+
+```
+@article{wei2025byzantine,
+  title={Byzantine-robust federated learning considering distributed Non-IID data in privacy-sensitive scenarios},
+  author={Wei, Zongpu and Wang, Jinsong and Zhao, Zening and Zhao, Zhao},
+  journal={Information Fusion},
+  pages={103345},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+
+***
+
 ## References and Acknowledgments
 During the development process of this project, we referred to the following excellent projects, which provided us with valuable ideas and references for our development.
 
@@ -130,4 +106,3 @@ related project:
 [python-paillier](https://github.com/data61/python-paillier)
 
 [Batchcrypt](https://github.com/marcoszh/BatchCrypt)
-
